@@ -4,7 +4,7 @@
 <section class="section">
 
   <div class="section-header">
-    <h1>Fakultas</h1>
+    <h1>Ruangan</h1>
   </div>
 
   <div class="section-body">
@@ -19,12 +19,12 @@
                 <button type="submit" class="btn btn-primary">Cari</button>
               </div>
             </form>
-            <a href="{{ route('fakultas.index') }}" class="pull-right">
-              <button type="button" class="btn btn-info">Semua Fakultas</button>
+            <a href="{{ route('ruangan.index') }}" class="pull-right">
+              <button type="button" class="btn btn-info">Semua Ruangan</button>
             </a>
           </div>
           <div class="card-header">
-            <a href="{{ route('fakultas.create') }}">
+            <a href="{{ route('ruang.tambah') }}">
               <button type="button" class="btn btn-primary">Tambah Data Baru</button>
             </a>
           </div>
@@ -34,22 +34,23 @@
               <thead>
                 <tr>
                   <th scope="col">NO</th>
-                  <th scope="col">Nama Fakultas</th>
-                  <th scope="col">ID Fakultas</th>
+                  <th scope="col">Nama Ruangan</th>
+                  <th scope="col">Jurusan</th>
                   <th scope="col">Opsi</th>
                 </tr>
               </thead>
               <tbody>
-               @forelse($data as $key => $fakultas)
+               @forelse($data as $key => $ruangan)
                 <tr>
                   <td>{{ $data->firstItem() + $key }}</td>
-                  <td>{{ $fakultas->name_fakultas }}</td>
-                  <td>{{ $fakultas->id_fakultas }}</td>
+                  <td>{{ $ruangan->name }}</td>
+                  <td>{{ $ruangan->name_jurusan }}</td>
                   <td>
-                    <a href="{{ route('fakultas.edit', ['id_fakultas' => $fakultas->id_fakultas]) }}">
+                    <a href="{{ route('ruang.edit', ['id_ruangan' => $ruangan->id]) }}">
                       <button type="button" class="btn btn-sm btn-info">GANTI</button>
                     </a>
-                   <a href="{{ route('fakultas.hapus', ['id_fakultas' => $fakultas->id_fakultas]) }}"
+                    <!-- id_ruangan itu nama terserah aja sih -->
+                   <a href="{{ route('ruang.hapus', ['id_ruangan' => $ruangan->id]) }}"
                     onclick="return confirm('Hapus DATA?');"
                     >
                       <button type="button" class="btn btn-sm btn-danger">Hapus</button>

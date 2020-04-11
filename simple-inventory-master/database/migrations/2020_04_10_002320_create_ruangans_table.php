@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFakultas extends Migration
+class CreateRuangansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateFakultas extends Migration
      */
     public function up()
     {
-        Schema::create('fakultas', function (Blueprint $table) {
+        Schema::create('ruangan', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_fakultas', 50);
+            $table->unsignedInteger('jurusan_id')->index(); // ini kalau kolomnya di desain sebagai foreign key ya
+            $table->string('name', 50);
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateFakultas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fakultas');
+        Schema::dropIfExists('ruangan');
     }
 }
