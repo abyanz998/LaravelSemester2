@@ -20,8 +20,6 @@
       <div class="navbar-bg"></div>
       @include('layouts.adminnavbar')
 
-      @include('layouts.adminsidebar')
-
       <!-- Main Content -->
       <div class="main-content">
         @yield('content')

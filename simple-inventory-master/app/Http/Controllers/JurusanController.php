@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Jurusan;
+use App\Exports\JurusanExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class JurusanController extends Controller
 {
@@ -19,7 +21,7 @@ class JurusanController extends Controller
         $data = Jurusan::when($request->search, function($query) use($request){
             $query->where('name_jurusan', 'LIKE', '%'.$request->search)
             ->orWhere('name_fakultas', 'LIKE', '%'.$request->search.'%');
-        })->join('fakultas', 'id_fakultas', '=', 'jurusan.fakultas_id')->orderBy('id', 'asc')->paginate(5);
+        })->join('fakultas', 'id_fakultas', '=', 'jurusan.fakultas_id')->orderBy('id_jurusan', 'asc')->paginate(5); // disini
 
         return view('jurusan.index', compact('data'));
     }
@@ -114,5 +116,9 @@ class JurusanController extends Controller
          Jurusan::whereId($id)->delete();
          return redirect()->route('jurusan.index')->with('success', 'Data berhasil di hapus ');
 
+     }
+
+     public function export(Request $request){
+       return Excel::download(new JurusanExport, 'jurusan-'.date("Y-m-d").'.xlsx');
      }
 }

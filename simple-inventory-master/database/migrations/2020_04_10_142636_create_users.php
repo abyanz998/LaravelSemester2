@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFakultas extends Migration
+class CreateUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateFakultas extends Migration
      */
     public function up()
     {
-        Schema::create('fakultas', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name_fakultas', 50);
+            $table->string('name',50);
+            $table->string('email',50);
+            $table->string('password',255);
+            $table->string('role',50)->default('admin');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateFakultas extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('fakultas');
+        Schema::dropIfExists('users');
     }
 }
