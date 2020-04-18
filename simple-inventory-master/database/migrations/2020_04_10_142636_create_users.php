@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJurusan extends Migration
+class CreateUsers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateJurusan extends Migration
      */
     public function up()
     {
-        Schema::create('jurusan', function (Blueprint $table) {
-            $table->bigIncrements('id_jurusan');
-            $table->unsignedInteger('fakultas_id')->index();
-            $table->string('name_jurusan', 50);
+        Schema::create('users', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name',50);
+            $table->string('email',50);
+            $table->string('password',255);
+            $table->string('role',50)->default('admin');
             $table->timestamps();
-
-            // $table->foreign('fakultas_id')->references('id')->on('fakultas')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateJurusan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jurusan');
+        Schema::dropIfExists('users');
     }
 }

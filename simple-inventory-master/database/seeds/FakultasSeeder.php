@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Fakultas;
 
+
 class FakultasSeeder extends Seeder
 {
     /**
@@ -12,10 +13,11 @@ class FakultasSeeder extends Seeder
      */
     public function run()
     {
-        $listFakultas = ['Filkom', 'Vokasi', 'Hukum'];
+        	Fakultas::create(['name_fakultas' => 'KEDOKTERAN']);
+          Fakultas::create(['name_fakultas' => 'TEKNOLOGI PERTANIAN']);
+          Fakultas::create(['name_fakultas' => 'ILMU BUDAYA']);
+          Fakultas::create(['name_fakultas' => 'ILMU SOSIAL DAN POLITIK']);
+          Fakultas::create(['name_fakultas' => 'VOKASI']);
 
-        foreach ($listFakultas as $fakultas) {
-        	Fakultas::create(['name' => $fakultas, 'photo' => 'dummy.png']);
-        }
     }
 }

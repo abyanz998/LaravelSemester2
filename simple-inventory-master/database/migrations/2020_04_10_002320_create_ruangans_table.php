@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateJurusan extends Migration
+class CreateRuangansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,11 @@ class CreateJurusan extends Migration
      */
     public function up()
     {
-        Schema::create('jurusan', function (Blueprint $table) {
-            $table->bigIncrements('id_jurusan');
-            $table->unsignedInteger('fakultas_id')->index();
-            $table->string('name_jurusan', 50);
+        Schema::create('ruangan', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->unsignedInteger('jurusan_id')->index(); // ini kalau kolomnya di desain sebagai foreign key ya
+            $table->string('name', 50);
             $table->timestamps();
-
-            // $table->foreign('fakultas_id')->references('id')->on('fakultas')->onDelete('cascade');
         });
     }
 
@@ -30,6 +28,6 @@ class CreateJurusan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jurusan');
+        Schema::dropIfExists('ruangan');
     }
 }

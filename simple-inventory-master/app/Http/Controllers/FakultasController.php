@@ -7,6 +7,12 @@ use App\Fakultas;
 
 class FakultasController extends Controller
 {
+    public function welcome()
+    {
+
+      return view('welcome');
+    }
+
     /**
      * Display a listing of the resource.
      *
