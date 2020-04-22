@@ -19,7 +19,7 @@
     <div class="main-wrapper">
       <div class="navbar-bg"></div>
       @include('layouts.adminnavbar')
-      
+
       @include('layouts.adminsidebar')
 
       <!-- Main Content -->
@@ -28,7 +28,7 @@
       </div>
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+          Copyright &copy; 2020 <div class="bullet"></div> Design By <a href="https://nauval.in/">Abyan Ariffalah Zulfikar</a>
         </div>
         <div class="footer-right">
           2.3.0
@@ -45,7 +45,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="{{ asset('assets/js/stisla.js') }}"></script>
 
-  
+
 
   <!-- Template JS File -->
   <script src="{{ asset('assets/js/scripts.js') }}"></script>

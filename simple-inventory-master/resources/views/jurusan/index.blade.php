@@ -32,6 +32,9 @@
             <table class="table table-bordered">
               <thead>
                 <tr>
+                  <a href="{{ route('jurusan.download') }}">
+                    <button type="button" class="btn btn-sm btn-info">EXPORT EXCELL</button>
+                  </a>
                   <th scope="col">NO</th>
                   <th scope="col">Nama Jurusan</th>
                   <th scope="col">Fakultas</th>

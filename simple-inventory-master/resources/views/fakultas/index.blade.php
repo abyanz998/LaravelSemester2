@@ -75,4 +75,5 @@
   </div>
 
 </section>
+{!! $data->links() !!}
 @endsection()
