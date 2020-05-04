@@ -38,17 +38,19 @@ Route::get('ruang/edit/{id}', ['as' => 'ruang.edit', 'uses' => 'RuanganControlle
 Route::put('ruang/edit/{id}', ['as' => 'ruang.ganti', 'uses' => 'RuanganController@ganti']) ->middleware('auth');
 Route::get('ruang/hapus/{id}', ['as' => 'ruang.hapus', 'uses' => 'RuanganController@hapus'])->middleware('auth');
 
-Route::get('barang', ['as' => 'barang.index', 'uses' => 'BarangController@index'])          ->middleware('auth','role');
-Route::get('barang/tambah', ['as' => 'barang.tambah', 'uses' => 'BarangController@tambah']) ->middleware('auth');
-Route::post('barang/tambah', ['as' => 'barang.store', 'uses' => 'BarangController@store'])  ->middleware('auth');
-Route::get('barang/edit/{id}', ['as' => 'barang.edit', 'uses' => 'BarangController@edit'])  ->middleware('auth');
-Route::put('barang/edit/{id}', ['as' => 'barang.ganti', 'uses' => 'BarangController@ganti'])->middleware('auth');
-Route::get('barang/hapus/{id}', ['as' => 'barang.hapus', 'uses' => 'BarangController@hapus'])->middleware('auth');
-Route::get('barangStaff/staff', ['as' => 'barang.staff', 'uses' => 'BarangController@staff'])->middleware('auth');
-Route::get('barang/export_excel', ['as' => 'barang.download', 'uses' => 'BarangController@export'])->middleware('auth');
-Route::get('barang/upload', ['as' => 'barang.upload', 'uses' => 'BarangController@upload']) -> middleware('auth');
+Route::get('barang',                ['as' => 'barang.index',        'uses' => 'BarangController@index'])  ->middleware('auth','role');
+Route::get('barang/tambah',         ['as' => 'barang.tambah',       'uses' => 'BarangController@tambah']) ->middleware('auth');
+Route::post('barang/tambah',        ['as' => 'barang.store',        'uses' => 'BarangController@store'])  ->middleware('auth');
+Route::get('barang/edit/{id}',      ['as' => 'barang.edit',         'uses' => 'BarangController@edit'])   ->middleware('auth');
+Route::put('barang/edit/{id}',      ['as' => 'barang.ganti',        'uses' => 'BarangController@ganti'])  ->middleware('auth');
+Route::get('barang/hapus/{id}',     ['as' => 'barang.hapus',        'uses' => 'BarangController@hapus'])  ->middleware('auth');
+Route::get('barangStaff/staff',     ['as' => 'barang.staff',        'uses' => 'BarangController@staff'])  ->middleware('auth');
+Route::get('barang/export_excel',   ['as' => 'barang.download',     'uses' => 'BarangController@export']) ->middleware('auth');
+Route::get('barang/upload',         ['as' => 'barang.upload',       'uses' => 'BarangController@upload']) -> middleware('auth');
 Route::post('barang/upload/proses', ['as' => 'barang.uploadproses', 'uses' => 'BarangController@uploadproses']) -> middleware('auth');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('kirimemail',            ['as' => 'kirim.kirim',         'uses' => 'kirimController@kirim']);
