@@ -31,7 +31,8 @@
 
           <div class="card-body">
             <table class="table table-bordered">
-              <thead><a href="{{ route('barang.download') }}">
+              <thead>
+              <a href="{{ route('barang.download') }}">
                 <button type="button" class="btn btn-sm btn-info">EXPORT EXCELL</button>
               </a>
               <a href="{{ route('barang.upload') }}">

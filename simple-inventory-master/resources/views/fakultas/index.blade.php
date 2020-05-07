@@ -1,3 +1,30 @@
+
+<!-- Import Excel -->
+<div class="modal fade" id="importExcel" >
+<div class="modal-dialog" role="document">
+<form  action="fakultas/import_excel" method="POST" enctype="multipart/form-data">
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="exampleModalLabel">Import Excel</h5>
+</div>
+<div class="modal-body">
+
+{{ csrf_field() }}
+
+<label>Pilih file excel</label>
+<div class="form-group">
+  <input type="file" name="file" required="required">
+</div>
+
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<button type="submit" class="btn btn-primary">Import</button>
+</div>
+</div>
+</form>
+</div>
+</div>
 @extends('layouts.adminmain')
 
 @section('content')
@@ -32,6 +59,9 @@
           <div class="card-body">
             <table class="table table-bordered">
               <thead>
+
+                  <button type="button" class="btn btn-primary mr-5" data-toggle="modal" data-target="#importExcel">IMPORT EXCELL</button>
+
                 <tr>
                   <th scope="col">NO</th>
                   <th scope="col">Nama Fakultas</th>
